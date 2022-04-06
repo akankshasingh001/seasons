@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import 'semantic-ui-css/semantic.min.css';
+import Spinner from './Spinner';
 import SeasonDisplay from './SeasonDisplay';
 
 class App extends React.Component {
@@ -18,7 +18,11 @@ class App extends React.Component {
     if (!this.state.errMessage && this.state.lat) {
       return <SeasonDisplay lat={this.state.lat} />;
     }
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Spinner message="Please accept location request" />
+      </div>
+    );
   }
 }
 
